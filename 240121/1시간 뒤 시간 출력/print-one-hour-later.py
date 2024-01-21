@@ -1,3 +1,2 @@
-time = input()
-print(int(time[0]) + 1, end="")
-print(time[1:])
+time = input().split(":")
+print(f'{int(time[0]) + 1}:{time[1]}')
