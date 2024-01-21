@@ -1,0 +1,1 @@
+print(n:=round(float(input()), 2))
