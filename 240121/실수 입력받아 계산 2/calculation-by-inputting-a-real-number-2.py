@@ -1,0 +1,1 @@
+print(a:=round(float(input()) + 1.5, 2))
