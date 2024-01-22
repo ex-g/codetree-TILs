@@ -1,5 +1,5 @@
 a, b = map(int, input().split())
-count_arr = [0] * 9
+count_arr = [0] * 10
 sum_val = 0
 
 while a > 1:
