@@ -1,11 +1,8 @@
 n = int(input())
 arr = list(map(int, input().split()))
+new_arr = []
 
-result = arr[0] + arr[1]
-for i in range(5):
-    for j in range(5):
-        if arr[i] != arr[j]:
-            if result > abs(arr[i] - arr[j]):
-                result = abs(arr[i] - arr[j])
+for i in range(4):
+    new_arr.append(abs(arr[i] - arr[i+1]))
 
-print(result)
+print(min(new_arr))
