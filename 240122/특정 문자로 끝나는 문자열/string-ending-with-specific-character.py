@@ -9,7 +9,7 @@ for elem in arr:
     if elem[-1] == a:
         new_arr.append(elem)
 
-if len(elem) == 0:
+if len(new_arr) == 0:
     print(None)
 else:
     for elem in new_arr:
