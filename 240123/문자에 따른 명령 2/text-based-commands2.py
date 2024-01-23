@@ -1,8 +1,8 @@
 dir_lst = list(input())
 x, y = 0, 0
-dx, dy = [-1, 0, 1], [0, 1, 0]
+dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
 
-dir = 1
+dir = 0
 dir_dict = {"L": (dir + 3) % 4, "R": (dir + 1) % 4}
 
 for elem in dir_lst:
