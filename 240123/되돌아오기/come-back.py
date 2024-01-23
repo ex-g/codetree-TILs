@@ -13,7 +13,7 @@ for _ in range(N):
         x, y = nx, ny
         cnt += 1
 
-        if x == 0 and y == 0:
+        if x == 0 and y == 0 and judge == False:
             result = cnt
             judge = True
 
