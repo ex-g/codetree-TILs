@@ -1,18 +1,14 @@
 N = int(input())
 arr = list(map(int, input().split()))
 arr.sort(reverse = True)
-new_arr = [arr.pop(0)]
 
-while len(arr) != 0:
-    arr_first = arr.pop(0)
-    if arr_first == new_arr[0]:
-        new_arr.append(arr_first)
-        new_arr.pop(0)
+ans = 0
+for i in range(N-1):
+    if i == 0 and arr[i] != arr[i+1]:
+        ans = arr[i]
+    elif i == N-2 and arr[i] != arr[i-2]:
+        ans = arr[i]
     else:
-        ans = new_arr.pop(0)
-        break
-
-if len(arr) != 0:
-    print(ans)
-else:
-    print(-1)
+        if arr[i] != arr[i-1] and arr[i] != arr[i + 1]:
+            ans = arr[i]
+print(ans)
