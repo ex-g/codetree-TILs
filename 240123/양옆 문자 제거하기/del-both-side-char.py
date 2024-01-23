@@ -1,3 +1,5 @@
 str = input()
-str = str[:2] + str[3:-2] + str[-1:]
-print(str)
+str = list(str)
+str.pop(1)
+str.pop(-2)
+print("".join(str))
