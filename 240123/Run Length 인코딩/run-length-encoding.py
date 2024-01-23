@@ -14,6 +14,10 @@ for i in range(len(A)):
 
 encoded_A.append(cnt)
 
-print(len(encoded_A[1:]))
+
+res_str = ""
 for elem in encoded_A[1:]:
-    print(elem, end="")
+    res_str += str(elem)
+
+print(len(list(res_str)))
+print(res_str)
