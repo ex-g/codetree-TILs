@@ -1,0 +1,5 @@
+num_lst = list(map(int, input().split()))
+num_lst.append(500)
+num_lst.sort()
+idx_500 = num_lst.index(500)
+print(num_lst[idx_500 -1], num_lst[idx_500 + 1])
