@@ -1,19 +1,18 @@
 n, t = map(int, input().split())
 r, c, d = input().split()
 r, c = int(r), int(c)
-
-
 dxs, dys = [0, 1, -1, 0], [1, 0, 0, -1]
-dir_dict = {"U": 0, "R": 1, "L": 2, "D": 3}
+dir_dict = {"R": 0, "D": 1, "U": 2, "L": 3}
 dir_num = dir_dict[d]
 
 def in_range(x, y):
-    return 0 <= x < n and 0 <= y < n
+    return 1 <= x < n+1 and 1 <= y < n+1
 
 for i in range(t):
-    if in_range:
-        nx, ny = r + dxs[dir_num], c + dys[dir_num]
+    nx, ny = r + dxs[dir_num], c + dys[dir_num]
+    if in_range(nx, ny):
+        r, c = nx, ny
     else: 
-        dir_num = dir_dict[2 - dir_num]
+        dir_num = 3 - dir_num
 
-print(nx + 1, ny + 1)
+print(r, c)
