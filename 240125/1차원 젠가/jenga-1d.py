@@ -1,43 +1,30 @@
 n = int(input())
-arr = [0] * n
-for i in range(n):
-    arr[i] = int(input())
-temp = [0] * n
-end_of_array = 0
-end_of_temp = 0
+arr = [int(input()) for _ in range(n)]
 s1, e1 = map(int, input().split())
 s2, e2 = map(int, input().split())
-BLANK = 0
 
-for i in range(s1-1, e1):
-    arr[i] = BLANK
 
-for i in range(len(arr)):
-    if arr[i] != BLANK:
-        temp[end_of_temp] = arr[i]
-        end_of_temp += 1
-    
-for i in range(end_of_temp):
-    arr[i] = temp[i]
-end_of_array = end_of_temp
-arr = arr[:end_of_temp]
+def play(arr, start, end):
+    BLANK = 0
+    temp = [0] * n
+    end_of_array, end_of_temp = 0, 0
 
-temp = [0] * (len(arr))
-end_of_temp = 0
-end_of_array = 0
+    for i in range(start-1, end):
+        arr[i] = BLANK
 
-for i in range(s2-1, e2):
-    arr[i] = BLANK
+    for i in range(len(arr)):
+        if arr[i] != BLANK:
+            temp[end_of_temp] = arr[i]
+            end_of_temp += 1
+        
+    for i in range(end_of_temp):
+        arr[i] = temp[i]
+    end_of_array = end_of_temp
 
-for i in range(len(arr)):
-    if arr[i] != BLANK:
-        temp[end_of_temp] = arr[i]
-        end_of_temp += 1
+    return arr[:end_of_temp]
 
-for i in range(end_of_temp):
-    arr[i] = temp[i]
-end_of_array = end_of_temp
-arr = arr[:end_of_temp]
+arr = play(arr, s1, e1)
+arr = play(arr, s2, e2)
 
 print(len(arr))
 for i in range(len(arr)):
