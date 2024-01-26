@@ -7,29 +7,28 @@ result = 0
 # cnt가 m이상이면 result += 1
 
 for i in range(n):
-    lst = arr[i]
     cnt = 1
     for j in range(n-1):
         if arr[i][j] == arr[i][j+1]:
             cnt += 1
         else:
             cnt = 1
-    if cnt >= m:
-        result += 1
+        if cnt >= m:
+            result += 1
+            break
 
 # 세로도 똑같이 진행
 
 for i in range(n):
-    lst = []
-    for j in range(n):
-        lst.append(arr[j][i])
     cnt = 1
     for j in range(n-1):
-        if lst[j] == lst[j+1]:
+        if arr[j][i] == arr[j+1][i]:
             cnt += 1
         else:
             cnt = 1
-    if cnt >= m:
-        result += 1
+        
+        if cnt >= m:
+            result += 1
+            break
 
 print(result)
