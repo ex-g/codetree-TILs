@@ -25,7 +25,7 @@ for i in range(n):
         lst.append(arr[j][i])
     cnt = 1
     for j in range(n-1):
-        if arr[i][j] == arr[i][j+1]:
+        if lst[j] == lst[j+1]:
             cnt += 1
         else:
             cnt = 1
