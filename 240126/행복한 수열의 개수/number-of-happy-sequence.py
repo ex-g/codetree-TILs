@@ -32,6 +32,6 @@ for i in range(n):
             break
 
 if n == 1 and m == 1:
-    print(1)
+    print(2)
 else:
     print(result)
