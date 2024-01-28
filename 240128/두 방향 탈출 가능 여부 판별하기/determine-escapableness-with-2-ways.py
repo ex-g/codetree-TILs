@@ -1,28 +1,41 @@
 n, m = map(int, input().split())
 graph = [list(map(int, input().split())) for _ in range(n)]
-visited = [[False for _ in range(m)] for _ in range(n)]
-dxs, dys = [1, 0], [0, 1]
-x, y = 0, 0
-visited[x][y] = True
-
+visited = [[0] * m for _ in range(n)]
+answer = [[0] * m for _ in range(n)]
+order = 1
 
 def in_range(x, y):
-    return 0 <= x < n and 0 <= y < n
+    return 0 <= x < n and 0 <= y < m
 
-last_x, last_y = 0, 0
+def can_go(x, y):
+    if not in_range(x, y):
+        return False
+    
+    if visited[x][y] or graph[x][y] == 0:
+        return False
+
+    return True
 
 def dfs(x, y):
-    global last_x, last_y
+    global order 
+
+    dxs, dys = [1, 0], [0, 1]
+
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
-        if in_range(nx, ny) and visited[nx][ny] == False and graph[nx][ny] == 1:
-            visited[nx][ny] = True
-            last_x, last_y = nx, ny
+
+        if can_go(nx, ny):
+            answer[nx][ny] = order
+            order += 1
+            visited[nx][ny] = 1
             dfs(nx, ny)
 
-dfs(x, y)
+answer[0][0] = order
+order += 1
+visited[0][0] = 1
+dfs(0, 0)
 
-if last_x == n-1 and last_y == n-1:
+if answer[n-1][m-1] != 0:
     print(1)
 else:
     print(0)
