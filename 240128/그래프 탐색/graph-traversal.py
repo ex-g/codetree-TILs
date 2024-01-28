@@ -7,11 +7,12 @@ for _ in range(m):
     graph[x][y] = 1
     graph[y][x] = 1
 
-cnt = 1
+
+cnt = 0
 def dfs(root_vertex):
     global cnt
-    for curr_v in graph[root_vertex]:
-        if visited[curr_v] == False:
+    for curr_v in range(1, n+1):
+        if graph[root_vertex][curr_v] and visited[curr_v] == False:
             visited[curr_v] = True
             cnt += 1
             dfs(curr_v)
