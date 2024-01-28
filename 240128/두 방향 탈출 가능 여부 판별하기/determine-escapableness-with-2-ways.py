@@ -12,14 +12,17 @@ def in_range(x, y):
 last_x, last_y = 0, 0
 
 def dfs(x, y):
+    global last_x, last_y
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
-        if in_range and visited[nx][ny] == False and graph[nx][ny] == 1:
+        if in_range(nx, ny) and visited[nx][ny] == False and graph[nx][ny] == 1:
             visited[nx][ny] = True
             last_x, last_y = nx, ny
             dfs(nx, ny)
 
-if last_x == n and last_y == n:
+dfs(x, y)
+
+if last_x == n-1 and last_y == n-1:
     print(1)
 else:
     print(0)
