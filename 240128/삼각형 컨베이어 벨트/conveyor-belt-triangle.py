@@ -18,7 +18,7 @@ def change():
 for _ in range(t):
     change()
 
-for i in range(n):
+for i in range(3):
     for j in range(n):
         print(grid[i][j], end=" ")
     print()
