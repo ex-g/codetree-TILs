@@ -7,7 +7,7 @@ def change():
     temp2 = grid[1][n-1]
     temp3 = grid[2][n-1]
 
-    for i in range(n):
+    for i in range(3):
         for j in range(n-2, -1, -1):
             grid[i][j + 1] = grid[i][j]
 
