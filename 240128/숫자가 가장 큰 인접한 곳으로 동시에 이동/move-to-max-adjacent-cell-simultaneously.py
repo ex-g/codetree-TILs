@@ -1,12 +1,11 @@
 n, m, t = map(int, input().split())
 grid = [list(map(int, input().split())) for _ in range(n)]
-cnt = [[0] * n for _ in range(n)]
 dxs, dys = [-1, 1, 0, 0], [0, 0, -1, 1]
 
+cnt = [[0] * n for _ in range(n)]
 for _ in range(m):
     r, c = map(int, input().split())
-    r, c = r-1, c-1
-    cnt[r][c] = 1
+    cnt[r-1][c-1] = 1
 
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < n
@@ -27,8 +26,8 @@ def move_all():
     for row in range(n):
         for col in range(n):
             if cnt[row][col] == 1:
-                result_1, result_2 = move_bead(row, col)
-                cnt_next[result_1][result_2] = 1
+                pos_1, pos_2 = move_bead(row, col)
+                cnt_next[pos_1][pos_2] += 1
 
     # 구슬이 2개 이상 모인 칸의 구슬 없애기
     for row in range(n):
@@ -43,6 +42,8 @@ def move_all():
 
 for _ in range(t):
     move_all()
+
+    
 
 result = 0
 for row in range(n):
