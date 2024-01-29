@@ -4,9 +4,9 @@ chosen = []
 max_result = 0
 
 def xor(chosen):
-    result = 0
-    for elem in chosen:
-        result ^= elem
+    result = chosen[0]
+    for i in range(1, len(chosen)):
+        result = result ^ chosen[i]
     return result
 
 def choose(cnt, last_num):
