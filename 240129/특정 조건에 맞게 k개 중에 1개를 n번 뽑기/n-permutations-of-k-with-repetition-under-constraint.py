@@ -1,10 +1,14 @@
 k, n = map(int, input().split())
 arr = []
 
+def print_arr():
+    for elem in arr:
+        print(elem, end=" ")
+    print()
+
 def choose(curr_num):
     if curr_num == n + 1:
-        for elem in arr:
-            print(elem)
+        print_arr()
         return 
 
     for i in range(1, k+1):
