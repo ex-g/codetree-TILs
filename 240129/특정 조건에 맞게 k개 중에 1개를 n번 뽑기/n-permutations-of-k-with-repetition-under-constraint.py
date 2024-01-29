@@ -12,7 +12,7 @@ def choose(curr_num):
         return 
 
     for i in range(1, k+1):
-        if len(arr) == 2 and arr[-1] == i and arr[-2] == i:
+        if len(arr) >= 2 and arr[-1] == i and arr[-2] == i:
             continue
         arr.append(i)
         choose(curr_num + 1)
