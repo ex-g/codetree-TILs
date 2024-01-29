@@ -1,18 +1,17 @@
 n, m, k = map(int, input().split())
 arr = list(map(int, input().split()))
 lst = []
-score = [0]
+score = [0] * (n + 1)
 max_val = 0
 
 def calc_score():
     global score
     result = 0
-    
     for i in range(n):
         score[lst[i] - 1] += arr[i]
 
     for elem in score:
-        if elem >= m:
+        if elem + 1 >= m:
             result += 1
 
     score = [0] * n
