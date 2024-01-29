@@ -1,30 +1,35 @@
 n, m = map(int, input().split())
-arr = list(map(int, input().split()))
+nums = list(map(int, input().split()))
 chosen = []
-max_result = 0
+max_val = 0
 
 def xor(chosen):
-    result = chosen[0]
-    for i in range(1, len(chosen)):
-        result = result ^ chosen[i]
+    result = 0
+    for elem in chosen:
+        result ^= elem
     return result
 
 def choose(cnt, last_num):
-    global max_result
+    global max_val
 
     if cnt == m:
-        max_result = max(max_result, xor(chosen))
+        result = xor(chosen)
+        max_val = max(max_val, result)
         return
-    
-    for i in range(last_num + 1, n + 1):
-        chosen.append(i)
-        choose(cnt + 1, i)
+
+    for i in range(last_num + 1, n):
+        # print("\nchosen : ", chosen)
+        # print("last_num : ", last_num)
+        # print("i : ", i)
+        # print("nums[i] : ", nums[i])
+        chosen.append(nums[i])
+        choose(len(chosen), i)
         chosen.pop()
 
-    
+
 for i in range(n):
-    chosen.append(arr[i])
-    choose(1, arr[i])
+    chosen.append(nums[i])
+    choose(1, i)
     chosen.pop()
 
-print(max_result)
+print(max_val)
