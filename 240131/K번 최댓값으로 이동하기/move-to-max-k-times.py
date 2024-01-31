@@ -6,8 +6,8 @@ q = deque()
 max_val = 0
 pos_x, pos_y = n, n
 
-def bfs(origin, origin_x, origin_y, visited):
-    global max_val
+def bfs(origin,  visited):
+    global max_val, pos_x, pos_y
     while q:
         r, c = q.popleft()
 
@@ -45,9 +45,8 @@ def play(s, e):
     visited[s][e] = True
     
     origin = graph[s][e]
-    origin_x, origin_y = s, e
     q.append((s, e))
-    final_x, final_y = bfs(origin, origin_x, origin_y, visited)
+    final_x, final_y = bfs(origin,  visited)
     # print("hello", final_x, final_y)
     return final_x + 1, final_y + 1
 
