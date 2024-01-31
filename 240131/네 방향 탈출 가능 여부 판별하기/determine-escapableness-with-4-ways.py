@@ -8,7 +8,7 @@ def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
 
 def can_go(x, y):
-    if not in_range or visited[x][y] or graph[x][y] == 0:
+    if not in_range(x, y) or visited[x][y] or graph[x][y] == 0:
         return False
     return True
 
