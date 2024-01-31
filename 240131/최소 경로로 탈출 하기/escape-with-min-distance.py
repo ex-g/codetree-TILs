@@ -6,7 +6,7 @@ visited = [[0] * m for _ in range(n)]
 dist = [[-1] * m for _ in range(n)]
 
 def in_range(x, y):
-    return 0 <= x < n and 0 <= y < n
+    return 0 <= x < n and 0 <= y < m
 
 def can_go(x, y):
     if not in_range(x, y) or visited[x][y] == 1 or graph[x][y] == 0:
@@ -30,6 +30,5 @@ q = deque()
 q.append((0, 0))
 dist[0][0] = 0
 bfs()
-
 
 print(dist[n-1][m-1])
