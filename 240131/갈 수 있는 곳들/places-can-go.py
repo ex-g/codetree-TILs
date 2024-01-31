@@ -25,7 +25,9 @@ def bfs():
 q = deque()
 for _ in range(k):
     r, c = map(int, input().split())
+    r, c = r-1, c-1
     q.append((r, c))
+    visited[r][c] = True
     bfs()
 
 cnt = 0
