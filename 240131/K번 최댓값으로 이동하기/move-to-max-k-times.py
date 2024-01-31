@@ -32,6 +32,10 @@ def bfs(origin,  visited):
                     # print("*3 nr, nc: ", nr, nc, " graph: ", graph[nr][nc])
                     max_val = graph[nr][nc]
                     pos_x, pos_y = nr, nc
+    
+    if pos_x == n and pos_y == n:
+        return r, c
+
 
     max_val = 0
 
@@ -46,6 +50,7 @@ def play(s, e):
     
     origin = graph[s][e]
     q.append((s, e))
+    # print(q)
     final_x, final_y = bfs(origin,  visited)
     # print("hello", final_x, final_y)
     return final_x + 1, final_y + 1
