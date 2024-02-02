@@ -19,6 +19,6 @@ for i in range(1, n):
 
 ans = 0
 for i in range(n):
-    ans = max(ans, dp[n-1][j])
+    ans = max(ans, dp[n-1][i])
 
 print(ans)
