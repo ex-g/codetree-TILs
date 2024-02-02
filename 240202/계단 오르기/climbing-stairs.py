@@ -1,20 +1,12 @@
 n = int(input())
-stair = [0] * (n+1)
+dp = [0] * (n+3)
+dp[2] = 1
+dp[3] = 1
 
-def step(n, stair):
-    if n == 1:
-        stair[1] = 0
-        return stair[1]
-    elif n == 2:
-        stair[2] = 1
-        return stair[2]
-    elif n == 3:
-        stair[3] = 1
-        return stair[3]
+def go_down(n, dp):
+    while n > 3:
+        dp[n] = (go_down(n-2, dp) + go_down(n-3, dp))
 
-    if stair[n]:
-        return stair[n]
-    else:
-        stair[n] = (step(n-3, stair) + step(n-2, stair)) % 10007
+    return dp[n]
 
-print(step(n, stair))
+print(go_down(n, dp))
