@@ -15,6 +15,6 @@ def step(n, stair):
     if stair[n]:
         return stair[n]
     else:
-        stair[n] = (step(n-3, stair) + step(n-2, stair)) % 1000
+        stair[n] = (step(n-3, stair) + step(n-2, stair)) % 10007
 
 print(step(n, stair))
