@@ -19,8 +19,5 @@ for i in range(1, n):
     for j in range(n-2, -1, -1):
         dp[i][j] = min(dp[i][j+1], dp[i-1][j]) + grid[i][j]
 
-ans = min_val
-for i in range(n):
-    ans = min(ans, dp[n-1][i])
 
-print(ans)
+print(dp[n-1][0])
