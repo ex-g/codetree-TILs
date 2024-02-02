@@ -10,7 +10,7 @@ def step(n, stair):
         return stair[2]
     elif n == 3:
         stair[3] = 1
-        return a[3]
+        return stair[3]
 
     if stair[n]:
         return stair[n]
