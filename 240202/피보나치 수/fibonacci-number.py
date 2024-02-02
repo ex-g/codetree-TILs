@@ -1,4 +1,4 @@
-memo = [-1] * 45
+memo = [-1] * 46
 
 def fibbo(n):
     if memo[n] != -1:
