@@ -4,6 +4,8 @@ dp[2] = 1
 dp[3] = 1
 
 def go_down(n, dp):
+    if n == 1:
+        return 0
     if n == 2:
         return 1
     elif n == 3:
