@@ -1,5 +1,5 @@
 import sys
-INT_MIN = sys.maxsize
+INT_MIN = -sys.maxsize
 
 n = int(input())
 arr = list(map(int, input().split()))
@@ -11,16 +11,18 @@ def init():
 
     dp[0] = 1
 
+init()
+
 for i in range(1, n):
     for j in range(0, i):
         if dp[j] == INT_MIN:
             continue
         
-        if dp[j] + arr[j] >= i:
-            dp[j] = max(dp[i], dp[j] + 1)
+        if arr[j] < arr[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
 
 ans = -sys.maxsize
 for i in range(n):
-    ans = max(ans, i)
+    ans = max(ans, dp[i])
 
 print(ans)
