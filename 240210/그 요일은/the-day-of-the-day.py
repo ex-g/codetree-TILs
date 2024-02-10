@@ -17,6 +17,8 @@ dates_dict = {}
 start_point = start % 7
 
 for i in dates:
+    if start_point == 7:
+        start_point = 0
     dates_dict[i] = start_point
     start_point += 1
 
