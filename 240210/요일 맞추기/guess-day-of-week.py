@@ -13,7 +13,16 @@ for i in range(m2):
     end += days_of_months[i]
 end += d2
 
-if start <= end:
-    print(dates[start % 7 - end % 7])
+start_date = start % 7
+end_date = end % 7
+
+var = abs(start_date - end_date)
+
+if start <= end and start_date <= end_date:
+    print(dates[var])
+elif start <= end and start_date > end_date:
+    print(dates[-var])
+elif start > end and start <= end_date:
+    print(dates[var])
 else:
-    print(dates[end % 7 - start % 7])
+    print(dates[-var])
