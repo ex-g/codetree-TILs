@@ -22,7 +22,7 @@ if start <= end and start_date <= end_date:
     print(dates[var])
 elif start <= end and start_date > end_date:
     print(dates[-var])
-elif start > end and start <= end_date:
+elif start > end and start_date <= end_date:
     print(dates[var])
 else:
     print(dates[-var])
