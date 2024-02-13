@@ -13,8 +13,8 @@ while True:
         digits.append(num)
         break
 
-    digits.append(num % 2)
-    num //= 2
+    digits.append(num % b)
+    num //= b
 
 for digit in digits[::-1]:
     print(digit, end="")
