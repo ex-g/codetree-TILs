@@ -1,10 +1,12 @@
 current_x, plus_max, minus_max = 0, 0, 0
 plus_arr = [0]
 minus_arr = []
+last_D = ""
 
 n = int(input())
 for _ in range(n):
     x, D = input().split()
+    last_D = D
     if D == "R":
         next_pos = current_x + int(x) - 1
     else:
@@ -78,11 +80,19 @@ for _ in range(n):
     # print("\n")
 
 # print(current_x)
+# print(last_D)
 
 result = [0, 0, 0]
 
 if current_x >= 0:
-    for i in plus_arr[current_x:]:
+    if last_D == "L" and plus_arr[current_x] < 4:
+        result[0] += 1
+    elif last_D == "R" and plus_arr[current_x] < 4:
+        result[1] += 1
+    else:
+        result[2] += 1
+
+    for i in plus_arr[current_x + 1:]:
         if i >= 4:
             result[2] += 1
         else:
@@ -98,7 +108,14 @@ if current_x >= 0:
         result[1] += 1
 
 else:
-    for i in minus_arr[current_x * (-1):]:
+    if last_D == "L" and minus_arr[current_x-1] < 4:
+        result[0] += 1
+    elif last_D == "R" and minus_arr[current_x-1] < 4:
+        result[1] += 1
+    else:
+        result[2] += 1
+
+    for i in minus_arr[current_x * (-1) + 1:]:
         if i >= 4:
             result[2] += 1
         else:
