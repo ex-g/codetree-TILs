@@ -70,7 +70,7 @@ for _ in range(n):
                 minus_arr[i] += 1
         else:
             for i in range(current_x * (-1) - 1, (next_pos * (-1)) - 1):
-                print(i)
+                # print(i)
                 minus_arr[i] += 1
 
     current_x = next_pos
@@ -82,6 +82,8 @@ for _ in range(n):
 # print(current_x)
 # print(last_D)
 
+# print(minus_arr[::-1], end=" ")
+# print(plus_arr)
 result = [0, 0, 0]
 
 if current_x >= 0:
@@ -108,26 +110,29 @@ if current_x >= 0:
         result[1] += 1
 
 else:
-    if last_D == "L" and minus_arr[current_x-1] < 4:
+    current_x = current_x * (-1) - 1
+
+    if last_D == "L" and minus_arr[current_x] < 4:
         result[0] += 1
-    elif last_D == "R" and minus_arr[current_x-1] < 4:
+    elif last_D == "R" and minus_arr[current_x] < 4:
         result[1] += 1
     else:
         result[2] += 1
 
-    for i in minus_arr[current_x * (-1) + 1:]:
+    # print(result)
+    for i in minus_arr[current_x + 1:]:
         if i >= 4:
             result[2] += 1
         else:
             result[1] += 1
 
-    for i in plus_arr[:current_x * (-1)]:
+    for i in minus_arr[:current_x]:
         if i >= 4:
             result[2] += 1
         else:
             result[0] += 1
 
-    for i in minus_arr:
+    for i in plus_arr:
         result[0] += 1
 
 for i in result:
