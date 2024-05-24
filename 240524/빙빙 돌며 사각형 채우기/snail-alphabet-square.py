@@ -17,7 +17,10 @@ for num in range(2, n * m + 1):
 
     x, y = x + dxs[cur_dir], y + dys[cur_dir]
     arr[x][y] = chr(init_num)
-    init_num += 1
+    if init_num == 90:
+        init_num = 65
+    else:
+        init_num += 1
 
 for i in range(n):
     for j in range(m):
