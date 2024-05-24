@@ -3,8 +3,8 @@ r, c, d = input().split()
 r, c = int(r) - 1, int(c) - 1
 drs, dcs = [0, -1, 1, 0], [1, 0, 0, -1]
 dir_dict = {
-    "U" : 2,
-    "D" : 1,
+    "U" : 1,
+    "D" : 2,
     "R" : 0,
     "L" : 3
 }
@@ -22,3 +22,6 @@ for _ in range(t):
         d = 3 - d
 
 print(r+1, c+1)
+
+# 26 41
+# 8 3 D
