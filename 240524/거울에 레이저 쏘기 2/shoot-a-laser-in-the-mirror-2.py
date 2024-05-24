@@ -5,13 +5,13 @@ dxs, dys = [1, 0, -1, 0], [0, -1, 0, 1]
 
 # 처음 들어오게 되는 위치별 방향 : 1~3 : D, 4~6 : L, 7~9 : U, 10~12 : R
 # 처음 x, y 좌표
-if 0 <= razer < n:
+if razer < n:
     cur_dir = 0
     x, y = 0, razer - 1
-elif n <= razer < 2 * n:
+elif razer < 2 * n:
     cur_dir = 1
     x, y = (razer % n) - 1, n - 1
-elif 2 * n <= razer < 3 * n:
+elif razer < 3 * n:
     cur_dir = 2
     x, y = n - 1, 3 * n - razer
 else:
@@ -19,26 +19,10 @@ else:
     x, y = 4 * n - razer, 0
 
 def change_dir(cur_dir, x, y):
-    if cur_dir == 0:
-        if arr[x][y] == "/":
-            cur_dir = 1
-        else:
-            cur_dir = 3
-    elif cur_dir == 1:
-        if arr[x][y] == "/":
-            cur_dir = 0
-        else:
-            cur_dir = 2
-    elif cur_dir == 2:
-        if arr[x][y] == "/":
-            cur_dir = 3
-        else:
-            cur_dir = 1
+    if arr[x][y] == "\\":
+        cur_dir = 3 - cur_dir
     else:
-        if arr[x][y] == "/":
-            cur_dir = 2
-        else:
-            cur_dir = 0
+        cur_dir = cur_dir ^ 1
     return cur_dir
 
 def in_range(x, y):
@@ -61,3 +45,9 @@ while True:
     # print()
     
 print(cnt)
+
+# xor 비트 연산 사용
+# 00 ^ 01 = 01
+# 01 ^ 01 = 00
+# 10 ^ 01 = 11
+# 11 ^ 01 = 10
