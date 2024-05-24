@@ -1,7 +1,7 @@
 n, t = map(int, input().split())
 r, c, d = input().split()
-r, c = int(r), int(c)
-drs, dcs = [1, 0, 0, -1], [0, -1, 1, 0]
+r, c = int(r) - 1, int(c) - 1
+drs, dcs = [0, -1, 1, 0], [1, 0, 0, -1]
 dir_dict = {
     "U" : 2,
     "D" : 1,
@@ -15,7 +15,10 @@ def in_range(r, c):
 
 for _ in range(t):
     nr, nc = r + drs[d], c + dcs[d]
+
     if in_range(nr, nc):
         r, c = nr, nc
+    else:
+        d = 3 - d
 
 print(r+1, c+1)
