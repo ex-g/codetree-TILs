@@ -8,7 +8,7 @@ arr = [
 arr[x][y] = 1
 
 def in_range(x, y):
-    return 0 <= x and x < n and 0 <= y and y < n
+    return 0 <= x and x < n and 0 <= y and y < m
 
 for num in range(2, n * m + 1):
     nx, ny = x + dxs[d], y + dys[d]
@@ -18,7 +18,6 @@ for num in range(2, n * m + 1):
 
     x, y = x + dxs[d], y + dys[d]
     arr[x][y] = num 
-
 
 for i in range(n):
     for j in range(m):
