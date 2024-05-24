@@ -13,8 +13,7 @@ for _ in range(n):
     dir_num = char_dict[dir_char]
     num = int(num)
 
-    for _ in range(num):
-        x += dx[dir_num]
-        y += dy[dir_num]
+    x += dx[dir_num] * num
+    y += dy[dir_num] * num
 
 print(x, y)
