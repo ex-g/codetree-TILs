@@ -1,5 +1,3 @@
-# 처음 위치랑 같아지면 초를 출력해라
-
 n = int(input())
 dxs, dys = [0, 1, 0, -1], [1, 0, -1, 0]
 mapper = {
@@ -10,20 +8,23 @@ mapper = {
 }
 time = 0
 x, y = 0, 0
-arr = []
 
-for _ in range(n):
-    d, dist = input().split()
-    d, dist = mapper[d], int(dist)
-    arr.append((d, dist))
+def move(d, dist):
+    global x, y, time 
 
-for d, dist in arr:
     for _ in range(dist):
         x, y = x + dxs[d], y + dys[d]
         time += 1
         if x == 0 and y == 0:
-            print(time)
-            break
+            return True
+    return False
 
-if time == 0:
-    print(-1)
+
+for _ in range(n):
+    d, dist = tuple(input().split())
+    d, dist = mapper[d], int(dist)
+
+    if move(d, dist):
+        break
+
+print(time)
