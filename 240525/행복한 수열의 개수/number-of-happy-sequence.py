@@ -13,6 +13,19 @@ def row_array_check(row, col_s):
         return 1
     return 0
 
+
+for row in range(n):
+    judge = False
+    for col in range(n):
+        if col + m - 1 >= n:
+            continue
+        if row_array_check(row, col) == 1:
+            judge = True
+    if judge:
+        ans += 1
+        judge = False
+
+
 def col_array_check(col, row_s):
     if m == 1:
         return 1
@@ -24,25 +37,15 @@ def col_array_check(col, row_s):
         return 1
     return 0
 
-
-for row in range(n):
-    for col in range(n):
-        if col + m - 1 >= n:
-            continue
-        judge = True
-        if row_array_check(row, col) == 0:
-            judge = False
-    if judge:
-        ans += 1
-
 for col in range(n):
+    judge = False
     for row in range(n):
         if row + m - 1 >= n:
             continue
-        judge = True
-        if col_array_check(col, row) == 0:
-            judge = False 
+        if col_array_check(col, row) == 1:
+            judge = True
     if judge:
         ans += 1
+        judge = False
     
 print(ans)
