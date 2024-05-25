@@ -1,51 +1,29 @@
 n, m = tuple(map(int, input().split()))
 grid = [list(map(int, input().split())) for _ in range(n)]
 ans = 0
+seq = [0 for _ in range(n)]
 
-def row_array_check(row, col_s):
-    if m == 1:
-        return 1
-    judge = True
-    for i in range(1, m):
-        if grid[row][col_s] != grid[row][col_s + i]:
-            judge = False
-    if judge:
-        return 1
-    return 0
+def is_happy_arr(seq):
+    consecutive_cnt, max_ccnt = 1, 1
+    for i in range(1, n):
+        if seq[i - 1] == seq[i]:
+            consecutive_cnt += 1
+        else:
+            consecutive_cnt = 1
+        max_ccnt = max(consecutive_cnt, max_ccnt)
+    return max_ccnt >= m
 
+for i in range(n):
+    seq = grid[i][:]
 
-for row in range(n):
-    judge = False
-    for col in range(n):
-        if col + m - 1 >= n:
-            continue
-        if row_array_check(row, col) == 1:
-            judge = True
-    if judge:
+    if is_happy_arr(seq):
         ans += 1
-        judge = False
 
+for j in range(n):
+    for i in range(n):
+        seq[i] = grid[i][j]
 
-def col_array_check(col, row_s):
-    if m == 1:
-        return 1
-    judge = True
-    for i in range(1, m):
-        if grid[row_s][col] != grid[row_s + i][col]:
-            judge = False
-    if judge:
-        return 1
-    return 0
-
-for col in range(n):
-    judge = False
-    for row in range(n):
-        if row + m - 1 >= n:
-            continue
-        if col_array_check(col, row) == 1:
-            judge = True
-    if judge:
+    if is_happy_arr(seq):
         ans += 1
-        judge = False
-    
+
 print(ans)
