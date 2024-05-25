@@ -33,19 +33,19 @@ max_hap = 0
 
 for i in range(n):
     for j in range(m):
+        if j + 2 < m:
+            hap = block2(i, j, 1)
+            max_hap = max(max_hap, hap)
+
         if i + 2 < n:
             hap = block2(i, j, 2)
             max_hap = max(max_hap, hap)
 
-        if j + 2 < n:
-            hap = block2(i, j, 1)
-            max_hap = max(max_hap, hap)
-
-        if i - 1 >= 0 and j + 1 < n:
+        if i - 1 >= 0 and j + 1 < m:
             hap = block1(i, j, 1)
             max_hap = max(max_hap, hap)
 
-        if i + 1 < n and j + 1 < n:
+        if i + 1 < n and j + 1 < m:
             hap = block1(i, j, 2)
             max_hap = max(max_hap, hap)
 
@@ -56,7 +56,5 @@ for i in range(n):
         if i - 1 >= 0 and j - 1 >= 0:
             hap = block1(i, j, 4)
             max_hap = max(max_hap, hap)
-
-
 
 print(max_hap)
