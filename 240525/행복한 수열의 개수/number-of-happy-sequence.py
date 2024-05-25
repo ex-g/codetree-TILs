@@ -8,7 +8,7 @@ def get_happy_arr(row, col):
         if grid[row][col] != grid[row][col+i]:
             judge = False
     if judge:
-        cnt += 1
+        cnt = 1
 
     return cnt
 
