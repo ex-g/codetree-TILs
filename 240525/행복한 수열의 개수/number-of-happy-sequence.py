@@ -1,29 +1,48 @@
-n, m = map(int, input().split())
+n, m = tuple(map(int, input().split()))
 grid = [list(map(int, input().split())) for _ in range(n)]
+ans = 0
 
-def get_happy_arr(row, col):
-    cnt = 0
+def row_array_check(row, col_s):
+    if m == 1:
+        return 1
     judge = True
     for i in range(1, m):
-        if grid[row][col] != grid[row][col+i]:
+        if grid[row][col_s] != grid[row][col_s + i]:
             judge = False
     if judge:
-        cnt = 1
+        return 1
+    return 0
 
-    return cnt
+def col_array_check(col, row_s):
+    if m == 1:
+        return 1
+    judge = True
+    for i in range(1, m):
+        if grid[row_s][col] != grid[row_s + i][col]:
+            judge = False
+    if judge:
+        return 1
+    return 0
 
-ans = 0
 
 for row in range(n):
     for col in range(n):
-        if col + m > n:
+        if col + m - 1 >= n:
             continue
-        ans += get_happy_arr(row, col)
-        
+        judge = True
+        if row_array_check(row, col) == 0:
+            judge = False
+    if judge:
+        ans += 1
+
 for col in range(n):
     for row in range(n):
-        if row + m > n:
+        if row + m - 1 >= n:
             continue
-        ans += get_happy_arr(col, row)
-
+        judge = True
+        if col_array_check(col, row) == 0:
+            judge = False 
+    if judge:
+        ans += 1
+    
 print(ans)
