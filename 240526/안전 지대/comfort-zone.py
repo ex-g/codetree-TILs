@@ -25,7 +25,7 @@ def dfs(x, y):
             dfs(nx, ny)
 
 # max_k 구하기
-max_k = 0
+max_k = 1
 for row in range(n):
     for col in range(m):
         max_k = max(max_k, grid[row][col])
