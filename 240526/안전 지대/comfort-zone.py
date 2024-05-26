@@ -1,7 +1,7 @@
 n, m = tuple(map(int, input().split()))
 grid = [list(map(int, input().split())) for _ in range(n)]
 max_safe = 0
-max_safe_k = 0
+max_safe_k = 1
 
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
