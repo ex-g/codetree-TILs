@@ -42,6 +42,7 @@ def bfs():
 for (i, j) in shelter:
     q.append((i, j))
     dist[i][j] = 0
+    visited[i][j] = True
 
 bfs()
 
