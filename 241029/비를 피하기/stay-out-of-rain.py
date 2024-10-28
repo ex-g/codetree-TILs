@@ -39,30 +39,47 @@ def bfs():
                 dist[nx][ny] = dist[x][y] + 1
                 q.append((nx, ny))
 
-def initialize_visited_dist():
-    for i in range(n):
-        for j in range(n):
-            visited[i][j] = False
-            dist[i][j] = -1
-
-answer = [[0] * n for _ in range(n)]
-
-for (i, j) in people:
-    initialize_visited_dist()
-    dist[i][j] = 0
-    visited[i][j] = True
+for (i, j) in shelter:
     q.append((i, j))
-    bfs()
+    dist[i][j] = 0
 
-    min_val = -1
-    for (k, l) in shelter:
-        if min_val == -1:
-            min_val = dist[k][l]
-        min_val = min(min_val, dist[k][l])
-
-    answer[i][j] = min_val
+bfs()
 
 for i in range(n):
     for j in range(n):
-        print(answer[i][j], end=" ")
+        if grid[i][j] != 2:
+            print(0, end = " ")
+        else:
+            if not visited[i][j]:
+                print(-1, end = " ")
+            else:
+                print(dist[i][j], end=" ")
     print()
+
+# def initialize_visited_dist():
+#     for i in range(n):
+#         for j in range(n):
+#             visited[i][j] = False
+#             dist[i][j] = -1
+
+# answer = [[0] * n for _ in range(n)]
+
+# for (i, j) in people:
+#     initialize_visited_dist()
+#     dist[i][j] = 0
+#     visited[i][j] = True
+#     q.append((i, j))
+#     bfs()
+
+#     min_val = -1
+#     for (k, l) in shelter:
+#         if min_val == -1:
+#             min_val = dist[k][l]
+#         min_val = min(min_val, dist[k][l])
+
+#     answer[i][j] = min_val
+
+# for i in range(n):
+#     for j in range(n):
+#         print(answer[i][j], end=" ")
+#     print()
